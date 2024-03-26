@@ -5,8 +5,8 @@ public class setUp {
     setUp (){
         Status = "Off";
         Cable = "VGA";
-        Volume = 50;
-        Brightness = 50;
+        Volume = 0;
+        Brightness = 0;
     }
 
     public String getStatus (){
@@ -45,16 +45,20 @@ public class setUp {
 
     //Cable
     public void setCable (int Choice){
-        if (Choice==1){
-            Cable = "VGA";
-        }else if (Choice==2){
-            Cable = "DVI";
-        }else if (Choice==3){
-            Cable = "HDMI";
-        }else if (Choice==4){
-            Cable = "DisplayPort";
+        if (Status.equalsIgnoreCase("off")){
+            Cable = "Unknown";
         }else {
-            Cable = "VGA";
+            if (Choice==1){
+                Cable = "VGA";
+            }else if (Choice==2){
+                Cable = "DVI";
+            }else if (Choice==3){
+                Cable = "HDMI";
+            }else if (Choice==4){
+                Cable = "DisplayPort";
+            }else {
+                Cable = "VGA";
+            }
         }
     }
 
@@ -71,41 +75,57 @@ public class setUp {
     
     //Volume
     public void volumeUp (){
-        int temp = Volume;
-        if (Volume<100) {
-            temp ++;
-            setVolume(temp);
-        }else {
-            setVolume(100);
+        if (Status.equalsIgnoreCase("off")){
+            setVolume(0);
+        }else{
+            int temp = Volume;
+            if (Volume<100) {
+                temp ++;
+                setVolume(temp);
+            }else {
+                setVolume(100);
+            }
         }
     }
     public void volumeDown (){
-        int temp = Volume;
-        if (Volume>0) {
-            temp --;
-            setVolume(temp);
-        }else {
+        if (Status.equalsIgnoreCase("off")){
             setVolume(0);
+        }else{
+            int temp = Volume;
+            if (Volume>0) {
+                temp --;
+                setVolume(temp);
+            }else {
+                setVolume(0);
+            }
         }
     }
     
     //Brightness
     public void BrightnessUp (){
-        int temp = Brightness;
-        if (Brightness<100) {
-            temp ++;
-            setBrightness(temp);
-        }else {
-            setBrightness(100);
+        if (Status.equalsIgnoreCase("off")){
+            setBrightness(0);
+        }else{
+            int temp = Brightness;
+            if (Brightness<100) {
+                temp ++;
+                setBrightness(temp);
+            }else {
+                setBrightness(100);
+            }
         }
     }
     public void BrightnessDown (){
-        int temp = Brightness;
-        if (Brightness>0) {
-            temp --;
-            setBrightness(temp);
-        }else {
+        if (Status.equalsIgnoreCase("off")){
             setBrightness(0);
+        }else{
+            int temp = Brightness;
+            if (Brightness>0) {
+                temp --;
+                setBrightness(temp);
+            }else {
+                setBrightness(0);
+            }
         }
     }
 }
