@@ -25,22 +25,33 @@ public class setUp {
     public void setStatus (String Status){
         this.Status = Status;
     }
+    
     public void setVolume (int Volume){
-        if (Volume>100) {
-            Volume=100;
-        }else if (Volume<0) {
-            Volume=0;
+        if (Status.equalsIgnoreCase("off")){
+            Volume = 0;
+            this.Volume = Volume;
+        }else{
+            if (Volume>100) {
+                Volume=100;
+            }else if (Volume<0) {
+                Volume=0;
+            }
+            this.Volume = Volume;
         }
-        this.Volume = Volume;
 
     }
     public void setBrightness (int Brightness){
-        if (Brightness>100) {
-            Brightness=100;
-        }else if (Brightness<0) {
-            Brightness=0;
+        if (Status.equalsIgnoreCase("off")){
+            Brightness = 0;
+            this.Brightness = Brightness;
+        }else{
+            if (Brightness>100) {
+                Brightness=100;
+            }else if (Brightness<0) {
+                Brightness=0;
+            }
+            this.Brightness = Brightness;
         }
-        this.Brightness = Brightness;
     }
 
     //Cable
@@ -68,6 +79,8 @@ public class setUp {
     }
     public void turnOff (){
         setStatus("Off");
+        setVolume(0);
+        setBrightness(0);
     }
     public void Freeze (){
         setStatus("Freeze");

@@ -40,6 +40,7 @@ public class LCD {
         LCD3.turnOn();
         LCD3.Freeze();
         LCD3.turnOn();
+        LCD3.setVolume(21);
         LCD3.turnOff();
         LCD3.volumeUp();
         LCD3.setVolume(512);
