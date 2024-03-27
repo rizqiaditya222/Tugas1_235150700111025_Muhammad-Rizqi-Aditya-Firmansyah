@@ -3,7 +3,6 @@ public class LCD {
         setUp LCD1 = new setUp();
         setUp LCD2 = new setUp();
         setUp LCD3 = new setUp();
-        setUp LCD4 = new setUp();
 
         LCD1.turnOn();
         LCD1.setVolume(21);
